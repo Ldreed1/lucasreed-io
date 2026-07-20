@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lucasreed.com/sitemap.xml
+Sitemap: https://lucasreed.net/sitemap.xml
