@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lucas Reed — Rail Engineer, Author &amp; Builder</title>
+  <meta name="description" content="Lucas Reed — Rail engineer, VP at Wilson &amp; Company. Sci-fi author of Toward the Shape of Time. Musician and astrophotographer. Highland, CA." />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://lucasreed.io/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lucasreed.io/" />
+  <meta property="og:title" content="Lucas Reed — Rail Engineer, Author &amp; Builder" />
+  <meta property="og:description" content="Rail engineer, sci-fi author, musician, and astrophotographer. VP at Wilson &amp; Company. Writing &ldquo;Toward the Shape of Time.&rdquo;" />
+  <meta property="og:image" content="https://lucasreed.io/images/luke-reed.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Lucas Reed — Rail Engineer, Author &amp; Builder" />
+  <meta name="twitter:description" content="Rail engineer, sci-fi author, musician, and astrophotographer." />
+  <meta name="twitter:image" content="https://lucasreed.io/images/luke-reed.jpg" />
+
+  <!-- Mobile browser chrome color -->
+  <meta name="theme-color" content="#07090f" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Lucas Reed",
+    "url": "https://lucasreed.io",
+    "jobTitle": "VP, West Coast Freight & Passenger Rail",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Wilson & Company, Inc., Engineers & Architects",
+      "url": "https://www.wilsonco.com"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Highland",
+      "addressRegion": "CA",
+      "addressCountry": "US"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/lucasreed1",
+      "https://www.instagram.com/ldreed",
+      "https://www.lucasreedbooks.com"
+    ],
+    "knowsAbout": ["Railroad Engineering", "Rail Infrastructure", "Science Fiction", "Astrophotography"],
+    "email": "lucas@lucasreed.io"
+  }
+  </script>
+
+  <!-- Favicon (SVG inline monogram) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2307090f'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='14' font-weight='700' fill='%2360a5fa'>LR</text></svg>" />
+
+  <!-- Preload above-the-fold image -->
+  <link rel="preload" as="image" href="images/luke-reed.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #07090f;
+      --bg2:       #0c1020;
+      --surface:   #111827;
+      --surface2:  #1a2236;
+      --border:    rgba(255,255,255,0.08);
+      --text:      #e8edf5;
+      --dim:       #8899b4;
+      --faint:     #3d4f6b;
+      --blue:      #60a5fa;
+      --blue-dim:  #1e3a5f;
+      --amber:     #f59e0b;
+      --amber-dim: #422006;
+      --green:     #34d399;
+      --serif:     'Playfair Display', Georgia, serif;
+      --sans:      'Inter', system-ui, -apple-system, sans-serif;
+      --radius:    12px;
+      --nav-h:     64px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── STARS ─────────────────────────────────────────── */
+    #stars-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* ─── NAV ────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      z-index: 100;
+      background: rgba(7, 9, 15, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--dim);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--text); }
+    .nav-links a.active::after {
+      content: '';
+      display: block;
+      height: 2px;
+      background: var(--blue);
+      border-radius: 1px;
+      margin-top: 2px;
+    }
+
+    .nav-cta {
+      background: var(--blue);
+      color: #000;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 20px;
+      letter-spacing: 0.04em;
+      transition: opacity 0.2s;
+    }
+
+    .nav-cta:hover { opacity: 0.85; }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--dim);
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+
+    /* ─── MOBILE NAV ─────────────────────────────────────── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      background: rgba(7,9,15,0.97);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 1.6rem;
+      font-family: var(--serif);
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .mobile-menu a:hover { color: var(--blue); }
+
+    .mobile-close {
+      position: absolute;
+      top: 20px; right: 20px;
+      background: none;
+      border: none;
+      color: var(--dim);
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* ─── SECTIONS ───────────────────────────────────────── */
+    section {
+      position: relative;
+      z-index: 1;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ─── HERO ───────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: calc(var(--nav-h) + 60px) 32px 80px;
+    }
+
+    .hero-inner { max-width: 780px; }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 28px;
+    }
+
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 9vw, 6.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .hero-tagline {
+      font-family: var(--serif);
+      font-size: clamp(1.1rem, 3vw, 1.65rem);
+      font-weight: 400;
+      color: var(--dim);
+      letter-spacing: 0.03em;
+      margin-bottom: 32px;
+    }
+
+    .hero-tagline em {
+      font-style: normal;
+      color: var(--text);
+    }
+
+    .hero-bio {
+      font-size: 1.05rem;
+      color: var(--dim);
+      max-width: 600px;
+      margin: 0 auto 48px;
+      line-height: 1.75;
+    }
+
+    .hero-photo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 2px solid rgba(96,165,250,0.3);
+      margin: 0 auto 28px;
+      display: block;
+      box-shadow: 0 0 0 6px rgba(96,165,250,0.06);
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: #000;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 28px;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+
+    .btn-ghost {
+      background: none;
+      color: var(--text);
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 14px 28px;
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .btn-ghost:hover { border-color: var(--blue); transform: translateY(-1px); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: var(--faint);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .hero-scroll::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--faint), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    /* ─── NOW SECTION ────────────────────────────────────── */
+    #now {
+      padding: 40px 0 56px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .now-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .now-label::before {
+      content: '';
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .now-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .now-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 9px 18px;
+      font-size: 0.85rem;
+    }
+
+    .now-item-icon { font-size: 1rem; }
+
+    .now-item-text { color: var(--dim); }
+
+    .now-item-text strong { color: var(--text); font-weight: 500; }
+
+    /* ─── SECTION CHROME ─────────────────────────────────── */
+    .section-pad { padding: 100px 0; }
+
+    .section-alt { background: var(--bg2); }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+
+    .section-heading {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--dim);
+      max-width: 600px;
+      line-height: 1.75;
+      margin-bottom: 56px;
+    }
+
+    /* ─── ENGINEERING ────────────────────────────────────── */
+    .eng-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .eng-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: border-color 0.2s;
+    }
+
+    .eng-card:hover { border-color: var(--blue); }
+
+    .eng-card-icon {
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+    }
+
+    .eng-card h3 {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .eng-card p {
+      font-size: 0.9rem;
+      color: var(--dim);
+      line-height: 1.65;
+    }
+
+    .arema-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 24px;
+    }
+
+    .arema-badge-icon { font-size: 1.4rem; }
+
+    .arema-badge-text strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .arema-badge-text span {
+      font-size: 0.8rem;
+      color: var(--dim);
+    }
+
+    /* ─── BOOK ───────────────────────────────────────────── */
+    .book-layout {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .book-cover-wrap {
+      width: 200px;
+      flex-shrink: 0;
+    }
+
+    .book-cover {
+      width: 200px;
+      aspect-ratio: 2/3;
+      background: linear-gradient(135deg, #0f1f40, #1a3a6b);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.08);
+    }
+
+    .book-cover::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(96,165,250,0.15) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(245,158,11,0.1) 0%, transparent 50%);
+    }
+
+    .book-cover-text {
+      position: relative;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .book-cover-title {
+      font-family: var(--serif);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .book-cover-subtitle {
+      font-size: 0.65rem;
+      color: var(--blue);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .book-meta { }
+
+    .book-series-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber);
+      background: var(--amber-dim);
+      border-radius: 20px;
+      padding: 4px 12px;
+      margin-bottom: 20px;
+    }
+
+    .book-title {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .book-opening-line {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--dim);
+      border-left: 2px solid var(--blue);
+      padding-left: 18px;
+      margin: 24px 0;
+      line-height: 1.7;
+    }
+
+    .book-desc {
+      font-size: 0.95rem;
+      color: var(--dim);
+      line-height: 1.75;
+      margin-bottom: 32px;
+    }
+
+    .signal-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+    }
+
+    .signal-box h4 {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .signal-box p {
+      font-size: 0.85rem;
+      color: var(--dim);
+      margin-bottom: 16px;
+    }
+
+    .signal-form {
+      display: flex;
+      gap: 10px;
+    }
+
+    .signal-form input {
+      flex: 1;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 10px 18px;
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .signal-form input:focus { border-color: var(--blue); }
+
+    .signal-form button {
+      background: var(--blue);
+      color: #000;
+      border: none;
+      border-radius: 24px;
+      padding: 10px 22px;
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+
+    .signal-form button:hover { opacity: 0.85; }
+
+    /* ─── MUSIC ──────────────────────────────────────────── */
+    .music-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .music-desc {
+      font-size: 0.98rem;
+      color: var(--dim);
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .influences {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    .influence-tag {
+      font-size: 0.78rem;
+      color: var(--text);
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 5px 14px;
+    }
+
+    .music-placeholder {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 48px 32px;
+      text-align: center;
+    }
+
+    .music-placeholder-icon { font-size: 2.5rem; margin-bottom: 16px; }
+
+    .music-placeholder h3 {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+
+    .music-placeholder p {
+      font-size: 0.85rem;
+      color: var(--dim);
+    }
+
+    .music-waveform {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      margin: 24px 0;
+    }
+
+    .music-waveform span {
+      display: block;
+      width: 3px;
+      background: var(--blue);
+      border-radius: 3px;
+      opacity: 0.6;
+      animation: wave 1.4s ease-in-out infinite;
+    }
+
+    .music-waveform span:nth-child(1)  { height: 12px; animation-delay: 0s; }
+    .music-waveform span:nth-child(2)  { height: 22px; animation-delay: 0.1s; }
+    .music-waveform span:nth-child(3)  { height: 32px; animation-delay: 0.2s; }
+    .music-waveform span:nth-child(4)  { height: 18px; animation-delay: 0.3s; }
+    .music-waveform span:nth-child(5)  { height: 28px; animation-delay: 0.4s; }
+    .music-waveform span:nth-child(6)  { height: 14px; animation-delay: 0.5s; }
+    .music-waveform span:nth-child(7)  { height: 36px; animation-delay: 0.6s; }
+    .music-waveform span:nth-child(8)  { height: 20px; animation-delay: 0.7s; }
+    .music-waveform span:nth-child(9)  { height: 26px; animation-delay: 0.8s; }
+    .music-waveform span:nth-child(10) { height: 12px; animation-delay: 0.9s; }
+
+    @keyframes wave {
+      0%, 100% { transform: scaleY(0.5); opacity: 0.3; }
+      50% { transform: scaleY(1); opacity: 0.8; }
+    }
+
+    /* ─── SPACE ──────────────────────────────────────────── */
+    .space-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .gallery-item {
+      aspect-ratio: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .gallery-item:hover { transform: scale(1.02); border-color: var(--blue); }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--faint);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .gallery-placeholder-icon { font-size: 1.8rem; opacity: 0.4; }
+
+    /* ─── BUILT ──────────────────────────────────────────── */
+    .built-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .built-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .built-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--blue), transparent);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .built-card:hover { border-color: rgba(96,165,250,0.3); transform: translateY(-3px); }
+    .built-card:hover::before { opacity: 1; }
+
+    .built-card-icon {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+
+    .built-card h3 {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .built-card p {
+      font-size: 0.85rem;
+      color: var(--dim);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .built-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: var(--blue-dim);
+      border-radius: 12px;
+      padding: 3px 10px;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+
+    /* ─── CONTACT ────────────────────────────────────────── */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .contact-links { display: flex; flex-direction: column; gap: 16px; }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.2s;
+    }
+
+    .contact-link:hover { border-color: var(--blue); }
+
+    .contact-link-icon { font-size: 1.2rem; }
+
+    .contact-link-label {
+      font-size: 0.82rem;
+      color: var(--dim);
+      margin-bottom: 2px;
+    }
+
+    .contact-link-value { font-size: 0.95rem; font-weight: 500; }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus { border-color: var(--blue); }
+
+    .contact-form textarea { resize: vertical; min-height: 120px; }
+
+    .contact-form button {
+      background: var(--blue);
+      color: #000;
+      border: none;
+      border-radius: var(--radius);
+      padding: 14px;
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .contact-form button:hover { opacity: 0.85; }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 32px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--faint);
+    }
+
+    footer a { color: var(--dim); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+
+    /* ─── DIVIDER ─────────────────────────────────────────── */
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(to right, var(--blue), transparent);
+      margin: 0 0 48px;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+
+      .container { padding: 0 20px; }
+      .section-pad { padding: 72px 0; }
+
+      .eng-grid { grid-template-columns: 1fr; }
+      .book-layout { grid-template-columns: 1fr; }
+      .book-cover-wrap { width: 140px; }
+      .book-cover { width: 140px; }
+      .music-layout { grid-template-columns: 1fr; }
+      .space-gallery { grid-template-columns: repeat(2, 1fr); }
+      .built-grid { grid-template-columns: 1fr; }
+      .contact-layout { grid-template-columns: 1fr; }
+    }
+
+    /* ─── FADE-IN ANIMATION ──────────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── SCREEN READER ONLY ─────────────────────────────── */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* ─── FOCUS STYLES ───────────────────────────────────── */
+    :focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="stars-canvas" aria-hidden="true"></canvas>
+
+  <!-- ─── NAV ──────────────────────────────────────────────── -->
+  <nav>
+    <a href="#hero" class="nav-logo">Lucas Reed</a>
+    <ul class="nav-links">
+      <li><a href="#engineering">Engineering</a></li>
+      <li><a href="#book">Book</a></li>
+      <li><a href="#built">Built</a></li>
+      <li><a href="#music">Music</a></li>
+      <li><a href="#space">Space</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Get in Touch</a>
+    <button class="nav-hamburger" onclick="openMobileMenu()" aria-label="Open navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ─── MOBILE MENU ───────────────────────────────────────── -->
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-close" onclick="closeMobileMenu()" aria-label="Close navigation menu">✕</button>
+    <a href="#engineering" onclick="closeMobileMenu()">Engineering</a>
+    <a href="#book" onclick="closeMobileMenu()">Book</a>
+    <a href="#built" onclick="closeMobileMenu()">Built</a>
+    <a href="#music" onclick="closeMobileMenu()">Music</a>
+    <a href="#space" onclick="closeMobileMenu()">Space</a>
+    <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+  </div>
+
+  <main>
+
+  <!-- ─── HERO ──────────────────────────────────────────────── -->
+  <section id="hero">
+    <div class="hero-inner">
+      <img src="images/luke-reed.jpg" alt="Lucas Reed" class="hero-photo" />
+      <span class="hero-eyebrow">Highland, California</span>
+      <h1 class="hero-name">Lucas Reed</h1>
+      <p class="hero-tagline">
+        <em>Engineer.</em> &nbsp;<em>Author.</em> &nbsp;<em>Builder.</em>
+      </p>
+      <p class="hero-bio">
+        I design rail infrastructure that moves freight across continents, write science fiction about what waits beyond it, build tools to make sense of the present, and photograph the sky when the day is done.
+      </p>
+      <div class="hero-ctas">
+        <a href="#engineering" class="btn-primary">See My Work</a>
+        <a href="#book" class="btn-ghost">Read the Book</a>
+      </div>
+    </div>
+    <div class="hero-scroll">Scroll</div>
+  </section>
+
+  <!-- ─── NOW ──────────────────────────────────────────────── -->
+  <section id="now">
+    <div class="container">
+      <div class="now-label">What I'm working on now</div>
+      <div class="now-grid">
+        <div class="now-item">
+          <span class="now-item-icon">📖</span>
+          <span class="now-item-text"><strong>Toward the Shape of Time</strong> — finishing Book 1 draft</span>
+        </div>
+        <div class="now-item">
+          <span class="now-item-icon">🎸</span>
+          <span class="now-item-text"><strong>"Good Bye"</strong> — debut single, in studio</span>
+        </div>
+        <div class="now-item">
+          <span class="now-item-icon">🚂</span>
+          <span class="now-item-text"><strong>West Coast Rail</strong> — VP at Wilson &amp; Company</span>
+        </div>
+        <div class="now-item">
+          <span class="now-item-icon">🔭</span>
+          <span class="now-item-text"><strong>Deep sky imaging</strong> — Highland, CA backyard</span>
+        </div>
+        <div class="now-item">
+          <span class="now-item-icon">🛳️</span>
+          <span class="now-item-text"><strong>Alaska cruise</strong> — Aug 21, Dawes Glacier</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ENGINEERING ───────────────────────────────────────── -->
+  <section id="engineering" class="section-pad section-alt">
+    <div class="container">
+      <div class="fade-in">
+        <p class="section-label">Engineering</p>
+        <h2 class="section-heading">Rail Infrastructure<br />at Scale</h2>
+        <div class="divider"></div>
+        <p class="section-sub">
+          Twenty years in rail means knowing what it costs when a grade crossing goes wrong, what it takes to get a Class I railroad to say yes, and how to deliver complex infrastructure when everyone's schedule conflicts. I run Wilson &amp; Company's West Coast rail practice — freight, passenger, and the politics in between.
+        </p>
+      </div>
+
+      <div class="eng-grid fade-in">
+        <div class="eng-card">
+          <div class="eng-card-icon">🚂</div>
+          <h3>Freight & Passenger Rail</h3>
+          <p>Design and delivery of complex rail projects across the Western United States — track geometry, grade separations, double-track programs, and intermodal facilities.</p>
+        </div>
+        <div class="eng-card">
+          <div class="eng-card-icon">🤝</div>
+          <h3>Client Relationships</h3>
+          <p>Deep working relationships with Class I railroads and transit agencies. Bridging the gap between public agency timelines and railroad operational realities.</p>
+        </div>
+        <div class="eng-card">
+          <div class="eng-card-icon">📊</div>
+          <h3>Business Development</h3>
+          <p>Proposal strategy, pursuit leadership, and contract negotiations on infrastructure contracts from preliminary engineering through final design.</p>
+        </div>
+        <div class="eng-card">
+          <div class="eng-card-icon">🏗️</div>
+          <h3>Alternative Delivery</h3>
+          <p>Design-build, CM/GC, and progressive design-build procurement. Coordinating multi-discipline teams through fast-track project delivery.</p>
+        </div>
+      </div>
+
+      <div class="fade-in">
+        <div class="arema-badge">
+          <span class="arema-badge-icon">🛤️</span>
+          <div class="arema-badge-text">
+            <strong>AREMA Member</strong>
+            <span>American Railway Engineering and Maintenance-of-Way Association</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── BOOK ──────────────────────────────────────────────── -->
+  <section id="book" class="section-pad">
+    <div class="container">
+      <div class="fade-in">
+        <p class="section-label">Fiction</p>
+        <h2 class="section-heading">The Book</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="book-layout fade-in">
+        <div class="book-cover-wrap">
+          <div class="book-cover">
+            <div class="book-cover-text">
+              <div class="book-cover-title">Toward the<br/>Shape of Time</div>
+              <div class="book-cover-subtitle">Book One</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="book-meta">
+          <span class="book-series-tag">Toward the Shape of Time &mdash; Series</span>
+          <h3 class="book-title">Toward the<br/>Shape of Time</h3>
+
+          <blockquote class="book-opening-line">
+            "Some connections cross light-years. Others cross time.<br/>The rarest ones cross both."
+          </blockquote>
+
+          <p class="book-desc">
+            Theo's husband vanished between dimensions — not dead, not gone, just somewhere the laws of physics say he can't be. Book One is about following him anyway. A series about the rarest kind of connection: the kind that crosses both light-years and time.
+          </p>
+
+          <div class="signal-box">
+            <h4>📡 The Signal</h4>
+            <p>Updates on the series, release dates, and early access. No noise — just signal.</p>
+            <form class="signal-form" action="https://formspree.io/f/xqeypwqz" method="POST" onsubmit="handleSignalSubmit(event)">
+              <input type="hidden" name="source" value="signal" />
+              <label for="signal-email" class="sr-only">Email address</label>
+              <input id="signal-email" type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── BUILT ─────────────────────────────────────────────── -->
+  <section id="built" class="section-pad section-alt">
+    <div class="container">
+      <div class="fade-in">
+        <p class="section-label">Technology</p>
+        <h2 class="section-heading">Things I've Built</h2>
+        <div class="divider"></div>
+        <p class="section-sub">
+          Engineering problems don't stop at the project boundary. When the right tool doesn't exist, I build it.
+        </p>
+      </div>
+
+      <div class="built-grid fade-in">
+        <div class="built-card">
+          <div class="built-card-icon">🛤️</div>
+          <h3>Rail Nexus</h3>
+          <p>Real-time flagging coordination portal for BNSF Railway operations. Tracks active flag requests, site contacts, and permit status across live California rail projects. Designed and built from scratch; now deployed on Wilson & Company's enterprise infrastructure.</p>
+          <span class="built-tag">Rail</span>
+          <span class="built-tag">Production</span>
+          <span class="built-tag">BNSF</span>
+        </div>
+
+        <div class="built-card">
+          <div class="built-card-icon">🧭</div>
+          <h3>Mission Control</h3>
+          <p>A personal operational intelligence system — financial tracking, health logging, calendar sync, and automated daily briefs. Built to answer the question: what does it look like to run your life like a well-managed project?</p>
+          <span class="built-tag">Personal OS</span>
+          <span class="built-tag">Automation</span>
+        </div>
+
+        <div class="built-card">
+          <div class="built-card-icon">🏠</div>
+          <h3>Family Dashboard</h3>
+          <p>A wall-mounted kitchen display for the Reed house. Real-time weather, home automation controls, kids' daily schedules, grocery list sync, and a family calendar — all in a single-page app running on a tablet.</p>
+          <span class="built-tag">Home</span>
+          <span class="built-tag">SmartThings</span>
+          <span class="built-tag">Live</span>
+        </div>
+
+        <div class="built-card">
+          <div class="built-card-icon">🤖</div>
+          <h3>Personal AI System</h3>
+          <p>A persistent AI assistant connected to my calendar, health data, finances, and creative projects. Not a chat app — an operational layer that knows the context before I need to explain it.</p>
+          <span class="built-tag">AI</span>
+          <span class="built-tag">Automation</span>
+        </div>
+
+        <div class="built-card">
+          <div class="built-card-icon">📡</div>
+          <h3>Astrophotography Pipeline</h3>
+          <p>Automated deep-sky imaging workflow using the Seestar S50 smart telescope. Sets up at dusk, runs unattended, pulls finished images by morning.</p>
+          <span class="built-tag">Astrophotography</span>
+          <span class="built-tag">Seestar</span>
+        </div>
+
+        <div class="built-card">
+          <div class="built-card-icon">📚</div>
+          <h3>Author Platform</h3>
+          <p>Design and deployment of my author website — lucasreedbooks.com. Custom design, static hosting, and integrated email list under the "Next Page Press" imprint.</p>
+          <span class="built-tag">Web</span>
+          <span class="built-tag">Author</span>
+          <a href="https://www.lucasreedbooks.com" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:10px;font-size:0.78rem;color:var(--blue);text-decoration:none;">lucasreedbooks.com →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── MUSIC ─────────────────────────────────────────────── -->
+  <section id="music" class="section-pad">
+    <div class="container">
+      <div class="fade-in">
+        <p class="section-label">Music</p>
+        <h2 class="section-heading">Songs</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="music-layout fade-in">
+        <div>
+          <p class="music-desc">
+            Acoustic and electric guitar, layered vocals, and a beat somewhere between a campfire and a studio. Somewhere between Tyler Childers and Bon Iver — songs about real things that happened to real people.
+          </p>
+          <p class="music-desc">
+            Built in a home studio in Highland, CA — recorded on a condenser mic, layered late at night. The music is personal before it's anything else.
+          </p>
+          <div class="influences">
+            <span class="influence-tag">Tyler Childers</span>
+            <span class="influence-tag">Zach Bryan</span>
+            <span class="influence-tag">Bon Iver</span>
+            <span class="influence-tag">Justin Vernon</span>
+            <span class="influence-tag">Acoustic / Electric</span>
+          </div>
+        </div>
+
+        <div class="music-placeholder">
+          <div class="music-placeholder-icon">🎸</div>
+          <h3>"Good Bye" — Debut Single</h3>
+          <p>In recording. Get notified when it's out.</p>
+          <div class="music-waveform">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <form style="display:flex;gap:8px;margin-top:4px;" action="https://formspree.io/f/xqeypwqz" method="POST" onsubmit="handleMusicSubmit(event)">
+            <input type="hidden" name="source" value="music-notify" />
+            <label for="music-email" class="sr-only">Email address</label>
+            <input id="music-email" type="email" name="email" placeholder="your@email.com" required autocomplete="email" style="flex:1;background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:9px 16px;color:var(--text);font-family:var(--sans);font-size:0.82rem;outline:none;" />
+            <button type="submit" id="music-notify-btn" style="background:var(--blue);color:#000;border:none;border-radius:20px;padding:9px 18px;font-family:var(--sans);font-size:0.82rem;font-weight:600;cursor:pointer;white-space:nowrap;">Notify me</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SPACE ─────────────────────────────────────────────── -->
+  <section id="space" class="section-pad section-alt">
+    <div class="container">
+      <div class="fade-in">
+        <p class="section-label">Astrophotography</p>
+        <h2 class="section-heading">Space &<br/>Photography</h2>
+        <div class="divider"></div>
+        <p class="section-sub">
+          San Gabriel Valley skies, a smart telescope, and a habit of staying up too late. Nebulae, galaxies, and deep-sky objects shot from the backyard in Highland, CA.
+        </p>
+      </div>
+
+      <!-- Gallery: replace the placeholder below with real image divs once you have shots.
+           Format: <div class="gallery-item"><img src="images/your-photo.jpg" alt="NGC 1234" /></div> -->
+      <div class="fade-in" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:48px 32px;text-align:center;margin-bottom:24px;">
+        <div style="font-size:2rem;margin-bottom:16px;">🔭</div>
+        <p style="font-family:var(--serif);font-size:1.1rem;font-weight:600;margin-bottom:8px;">Gallery coming soon</p>
+        <p style="font-size:0.85rem;color:var(--dim);">Deep-sky images from the backyard in Highland, CA — Seestar S50 Pro</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ───────────────────────────────────────────── -->
+  <section id="contact" class="section-pad">
+    <div class="container">
+      <div class="fade-in">
+        <p class="section-label">Contact</p>
+        <h2 class="section-heading">Get in Touch</h2>
+        <div class="divider"></div>
+        <p class="section-sub">Rail projects, creative work, or something else entirely — reach out.</p>
+      </div>
+
+      <div class="contact-layout fade-in">
+        <div class="contact-links">
+          <a href="mailto:lucas@lucasreed.io" class="contact-link">
+            <span class="contact-link-icon">✉️</span>
+            <div>
+              <div class="contact-link-label">Email</div>
+              <div class="contact-link-value">lucas@lucasreed.io</div>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/lucasreed1" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <span class="contact-link-icon">💼</span>
+            <div>
+              <div class="contact-link-label">LinkedIn</div>
+              <div class="contact-link-value">linkedin.com/in/lucasreed1</div>
+            </div>
+          </a>
+          <a href="https://www.lucasreedbooks.com" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <span class="contact-link-icon">📖</span>
+            <div>
+              <div class="contact-link-label">Author Site</div>
+              <div class="contact-link-value">lucasreedbooks.com</div>
+            </div>
+          </a>
+          <a href="https://www.instagram.com/ldreed" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <span class="contact-link-icon">📷</span>
+            <div>
+              <div class="contact-link-label">Instagram</div>
+              <div class="contact-link-value">@ldreed</div>
+            </div>
+          </a>
+        </div>
+
+        <form class="contact-form" action="https://formspree.io/f/xqeypwqz" method="POST" onsubmit="handleContactSubmit(event)">
+          <input type="hidden" name="source" value="contact" />
+          <label for="contact-name" class="sr-only">Your name</label>
+          <input id="contact-name" type="text" name="name" placeholder="Your name" required autocomplete="name" />
+          <label for="contact-email" class="sr-only">Your email</label>
+          <input id="contact-email" type="email" name="email" placeholder="Your email" required autocomplete="email" />
+          <label for="contact-subject" class="sr-only">Subject</label>
+          <input id="contact-subject" type="text" name="subject" placeholder="Subject" />
+          <label for="contact-message" class="sr-only">Message</label>
+          <textarea id="contact-message" name="message" placeholder="What's on your mind?" required></textarea>
+          <button type="submit" id="contact-submit-btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ─── FOOTER ───────────────────────────────────────────── -->
+  <footer>
+    <p>
+      &copy; 2026 Lucas Reed &nbsp;&mdash;&nbsp;
+      <a href="mailto:lucas@lucasreed.io">lucas@lucasreed.io</a>
+      &nbsp;&mdash;&nbsp;
+      Highland, California
+    </p>
+  </footer>
+
+  <!-- ─── JS ────────────────────────────────────────────────── -->
+  <script>
+    // ── Stars ──────────────────────────────────────────────────
+    (function() {
+      const canvas = document.getElementById('stars-canvas');
+      const ctx = canvas.getContext('2d');
+      let stars = [];
+      let W, H;
+
+      function resize() {
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = document.body.scrollHeight;
+      }
+
+      function createStars(n) {
+        stars = [];
+        for (let i = 0; i < n; i++) {
+          stars.push({
+            x: Math.random() * W,
+            y: Math.random() * H,
+            r: Math.random() * 1.2 + 0.2,
+            a: Math.random(),
+            da: (Math.random() - 0.5) * 0.004,
+            speed: Math.random() * 0.002 + 0.001,
+            phase: Math.random() * Math.PI * 2
+          });
+        }
+      }
+
+      let frame = 0;
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+        frame += 0.5;
+        for (const s of stars) {
+          s.a = 0.2 + 0.6 * (0.5 + 0.5 * Math.sin(frame * s.speed + s.phase));
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255,255,255,${s.a})`;
+          ctx.fill();
+        }
+        requestAnimationFrame(draw);
+      }
+
+      function init() {
+        resize();
+        createStars(320);
+        draw();
+      }
+
+      window.addEventListener('resize', () => {
+        resize();
+        createStars(320);
+      });
+
+      init();
+    })();
+
+    // ── Active nav on scroll ───────────────────────────────────
+    (function() {
+      const sections = ['engineering','book','built','music','space','contact'];
+      const navLinks = {};
+      sections.forEach(id => {
+        const el = document.querySelector(`.nav-links a[href="#${id}"]`);
+        if (el) navLinks[id] = el;
+      });
+
+      const sectionEls = sections.map(id => document.getElementById(id)).filter(Boolean);
+
+      const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            Object.values(navLinks).forEach(a => a.classList.remove('active'));
+            const link = navLinks[entry.target.id];
+            if (link) link.classList.add('active');
+          }
+        });
+      }, { threshold: 0.25, rootMargin: '-60px 0px -40% 0px' });
+
+      sectionEls.forEach(el => scrollObserver.observe(el));
+    })();
+
+    // ── Fade-in on scroll ──────────────────────────────────────
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    fadeEls.forEach(el => observer.observe(el));
+
+    // ── Mobile menu ────────────────────────────────────────────
+    const hamburgerBtn = document.querySelector('.nav-hamburger');
+    function openMobileMenu() {
+      document.getElementById('mobile-menu').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      hamburgerBtn.setAttribute('aria-expanded', 'true');
+    }
+    function closeMobileMenu() {
+      document.getElementById('mobile-menu').classList.remove('open');
+      document.body.style.overflow = '';
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    // ── Music notify form ──────────────────────────────────────
+    function handleMusicSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = document.getElementById('music-notify-btn');
+      btn.textContent = '…';
+      btn.disabled = true;
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(r => {
+        btn.textContent = r.ok ? '✓ Done' : 'Try again';
+        if (r.ok) form.reset();
+        else btn.disabled = false;
+      }).catch(() => { btn.textContent = 'Try again'; btn.disabled = false; });
+    }
+
+    // ── Signal form ────────────────────────────────────────────
+    function handleSignalSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = form.querySelector('button');
+      btn.textContent = 'Subscribing…';
+      btn.disabled = true;
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(r => {
+        if (r.ok) {
+          btn.textContent = '✓ Subscribed';
+          form.reset();
+        } else {
+          btn.textContent = 'Try again';
+          btn.disabled = false;
+        }
+      }).catch(() => {
+        btn.textContent = 'Try again';
+        btn.disabled = false;
+      });
+    }
+
+    // ── Contact form ────────────────────────────────────────────
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = document.getElementById('contact-submit-btn');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(r => {
+        if (r.ok) {
+          btn.textContent = '✓ Sent';
+          form.reset();
+        } else {
+          btn.textContent = 'Try again';
+          btn.disabled = false;
+        }
+      }).catch(() => {
+        btn.textContent = 'Try again';
+        btn.disabled = false;
+      });
+    }
+  </script>
+
+</body>
+</html>

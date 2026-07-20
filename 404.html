@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found — Lucas Reed</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2307090f'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='14' font-weight='700' fill='%2360a5fa'>LR</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:    #07090f;
+      --text:  #e8edf5;
+      --dim:   #8899b4;
+      --faint: #3d4f6b;
+      --blue:  #60a5fa;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans:  'Inter', system-ui, sans-serif;
+    }
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+    }
+    canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    main {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 24px;
+    }
+    .code {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 8vw, 5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.05rem;
+      color: var(--dim);
+      max-width: 400px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+    a {
+      display: inline-block;
+      background: var(--blue);
+      color: #000;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 28px;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: opacity 0.2s;
+    }
+    a:hover { opacity: 0.85; }
+  </style>
+</head>
+<body>
+  <canvas id="c" aria-hidden="true"></canvas>
+  <main>
+    <div class="code">404</div>
+    <h1>Lost in space.</h1>
+    <p>That page doesn't exist — or it drifted out of orbit. Head back home.</p>
+    <a href="/">Back to lucasreed.io</a>
+  </main>
+  <script>
+    (function() {
+      const c = document.getElementById('c');
+      const ctx = c.getContext('2d');
+      let stars = [], W, H;
+      function resize() { W = c.width = innerWidth; H = c.height = innerHeight; }
+      function init() {
+        stars = [];
+        for (let i = 0; i < 220; i++) {
+          stars.push({ x: Math.random()*W, y: Math.random()*H, r: Math.random()*1.2+0.2, phase: Math.random()*Math.PI*2, speed: Math.random()*0.002+0.001 });
+        }
+      }
+      let f = 0;
+      function draw() {
+        ctx.clearRect(0,0,W,H);
+        f += 0.5;
+        for (const s of stars) {
+          const a = 0.2 + 0.6 * (0.5 + 0.5 * Math.sin(f * s.speed + s.phase));
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+          ctx.fillStyle = `rgba(255,255,255,${a})`;
+          ctx.fill();
+        }
+        requestAnimationFrame(draw);
+      }
+      window.addEventListener('resize', () => { resize(); init(); });
+      resize(); init(); draw();
+    })();
+  </script>
+</body>
+</html>
