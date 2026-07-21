@@ -413,7 +413,13 @@
       font-size: 0.85rem;
     }
 
-    .now-item-icon { font-size: 1rem; }
+    .now-item::before {
+      content: '—';
+      color: var(--blue);
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      opacity: 0.7;
+    }
 
     .now-item-text { color: var(--dim); }
 
@@ -827,7 +833,12 @@
     .built-card:hover::before { opacity: 1; }
 
     .built-card-icon {
-      font-size: 1.5rem;
+      font-size: 0.75rem;
+      font-family: var(--sans);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--blue);
+      opacity: 0.8;
       margin-bottom: 16px;
     }
 
@@ -884,7 +895,15 @@
 
     .contact-link:hover { border-color: var(--blue); }
 
-    .contact-link-icon { font-size: 1.2rem; }
+    .contact-link-icon {
+      font-size: 1rem;
+      font-family: var(--sans);
+      font-weight: 600;
+      color: var(--blue);
+      width: 24px;
+      text-align: center;
+      flex-shrink: 0;
+    }
 
     .contact-link-label {
       font-size: 0.82rem;
@@ -1068,23 +1087,18 @@
       <div class="now-label">What I'm working on now</div>
       <div class="now-grid">
         <div class="now-item">
-          <span class="now-item-icon">📖</span>
           <span class="now-item-text"><strong>Toward the Shape of Time</strong> — finishing Book 1 draft</span>
         </div>
         <div class="now-item">
-          <span class="now-item-icon">🎸</span>
           <span class="now-item-text"><strong>"Good Bye"</strong> — debut single, in studio</span>
         </div>
         <div class="now-item">
-          <span class="now-item-icon">🛤️</span>
           <span class="now-item-text"><strong>West Coast Rail</strong> — VP at Wilson &amp; Company</span>
         </div>
         <div class="now-item">
-          <span class="now-item-icon">🔭</span>
           <span class="now-item-text"><strong>Deep sky imaging</strong> — Highland, CA backyard</span>
         </div>
         <div class="now-item">
-          <span class="now-item-icon">🛳️</span>
           <span class="now-item-text"><strong>Alaska cruise</strong> — Aug 21, Dawes Glacier</span>
         </div>
       </div>
@@ -1128,7 +1142,7 @@
 
       <div class="fade-in">
         <div class="arema-badge">
-          <span class="arema-badge-icon">🛤️</span>
+          <span class="arema-badge-icon">◆</span>
           <div class="arema-badge-text">
             <strong>AREMA Member</strong>
             <span>American Railway Engineering and Maintenance-of-Way Association</span>
@@ -1198,7 +1212,7 @@
 
       <div class="built-grid fade-in">
         <div class="built-card">
-          <div class="built-card-icon">🛤️</div>
+          <div class="built-card-icon">RAIL</div>
           <h3>Rail Nexus</h3>
           <p>Real-time flagging coordination portal for BNSF Railway operations. Tracks active flag requests, site contacts, and permit status across live California rail projects. Designed and built from scratch; now deployed on Wilson & Company's enterprise infrastructure.</p>
           <span class="built-tag">Rail</span>
@@ -1207,7 +1221,7 @@
         </div>
 
         <div class="built-card">
-          <div class="built-card-icon">🧭</div>
+          <div class="built-card-icon">SYS</div>
           <h3>Mission Control</h3>
           <p>A personal operational intelligence system — financial tracking, health logging, calendar sync, and automated daily briefs. Built to answer the question: what does it look like to run your life like a well-managed project?</p>
           <span class="built-tag">Personal OS</span>
@@ -1215,7 +1229,7 @@
         </div>
 
         <div class="built-card">
-          <div class="built-card-icon">🏠</div>
+          <div class="built-card-icon">HOME</div>
           <h3>Family Dashboard</h3>
           <p>A wall-mounted kitchen display for the Reed house. Real-time weather, home automation controls, kids' daily schedules, grocery list sync, and a family calendar — all in a single-page app running on a tablet.</p>
           <span class="built-tag">Home</span>
@@ -1224,7 +1238,7 @@
         </div>
 
         <div class="built-card">
-          <div class="built-card-icon">◉</div>
+          <div class="built-card-icon">AI</div>
           <h3>Personal AI System</h3>
           <p>A persistent AI assistant connected to my calendar, health data, finances, and creative projects. Not a chat app — an operational layer that knows the context before I need to explain it.</p>
           <span class="built-tag">AI</span>
@@ -1232,7 +1246,7 @@
         </div>
 
         <div class="built-card">
-          <div class="built-card-icon">📡</div>
+          <div class="built-card-icon">SKY</div>
           <h3>Astrophotography Pipeline</h3>
           <p>Automated deep-sky imaging workflow using the Seestar S50 smart telescope. Sets up at dusk, runs unattended, pulls finished images by morning.</p>
           <span class="built-tag">Astrophotography</span>
@@ -1240,7 +1254,7 @@
         </div>
 
         <div class="built-card">
-          <div class="built-card-icon">📚</div>
+          <div class="built-card-icon">WEB</div>
           <h3>Author Platform</h3>
           <p>Design and deployment of my author website — lucasreedbooks.com. Custom design, static hosting, and integrated email list under the "Next Page Press" imprint.</p>
           <span class="built-tag">Web</span>
@@ -1278,7 +1292,7 @@
         </div>
 
         <div class="music-placeholder">
-          <div class="music-placeholder-icon">🎸</div>
+          <div class="music-placeholder-icon">—</div>
           <h3>"Good Bye" — Debut Single</h3>
           <p>In recording. Get notified when it's out.</p>
           <div class="music-waveform">
@@ -1311,7 +1325,7 @@
       <!-- Gallery: replace the placeholder below with real image divs once you have shots.
            Format: <div class="gallery-item"><img src="images/your-photo.jpg" alt="NGC 1234" /></div> -->
       <div class="fade-in" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:48px 32px;text-align:center;margin-bottom:24px;">
-        <div style="font-size:2rem;margin-bottom:16px;">🔭</div>
+        <div style="font-size:0.75rem;font-family:var(--sans);font-weight:700;letter-spacing:0.12em;color:var(--blue);opacity:0.7;margin-bottom:16px;">SKY</div>
         <p style="font-family:var(--serif);font-size:1.1rem;font-weight:600;margin-bottom:8px;">Gallery coming soon</p>
         <p style="font-size:0.85rem;color:var(--dim);">Deep-sky images from the backyard in Highland, CA — Seestar S50 Pro</p>
       </div>
@@ -1331,7 +1345,7 @@
       <div class="contact-layout fade-in">
         <div class="contact-links">
           <a href="mailto:lucas@lucasreed.io" class="contact-link">
-            <span class="contact-link-icon">✉️</span>
+            <span class="contact-link-icon">@</span>
             <div>
               <div class="contact-link-label">Email</div>
               <div class="contact-link-value">lucas@lucasreed.io</div>
@@ -1345,7 +1359,7 @@
             </div>
           </a>
           <a href="https://www.lucasreedbooks.com" target="_blank" rel="noopener noreferrer" class="contact-link">
-            <span class="contact-link-icon">📖</span>
+            <span class="contact-link-icon">↗</span>
             <div>
               <div class="contact-link-label">Author Site</div>
               <div class="contact-link-value">lucasreedbooks.com</div>
